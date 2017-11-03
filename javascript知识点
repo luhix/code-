@@ -1,0 +1,75 @@
+1.获取dom元素的方法
+   document.getElementById();
+   document.getElementsByTagName('div')[0];
+2.window.onload =function(){}加载事件
+3.window.onresize事件  窗口变化
+4.获取元素的属性（行内样式）
+    oDiv.className;oDiv.id;
+   oDiv.style.width;oDiv.style.backgroundColor
+   oDiv.innerHtml  获取div中的html标签  oDiv.innerText 获取div中的纯文本内容
+   setAttribute 设置自定义属性
+   getAttribute 获取自定义属性
+   ***获取非行内元素**
+   oDiv.currentStyle['width'] ie支持，火狐谷歌不支持
+   getComputedStyle(obj,null)['width'] ie不支持。火狐谷歌支持
+   function getStyle(obj,name){
+       return obj.currentStyle ? obj.currentStyle[name] : getComputedStyle(obj,null)[name];
+}  
+ 
+5.节点操作
+   children  //根据父亲找到直接子节点
+   parentNode //根据儿子找到父亲
+   
+   火狐或者谷歌
+   firstElementChild    //长子
+   lastElementChild    //最后
+   previousElementSibling    //同辈中的上一个
+   nextElementSibling         //同辈中的下一个
+ 
+   IE 6/7/8
+   firstChild
+   lastChild
+   priviousSibling
+   nextSibling      
+   
+添加或者删除节点
+   createElement  创建节点，该方法只属于 document
+   removeChild     删除节点， 该方法任何父对象都可以
+   appendChild    追加节点，在父对象的下面追加一个节点
+   insertChild     插入节点，插入到父对象下面的某个节点前面
+ 
+6.使用事件
+   onmouseover  鼠标悬停
+   onmouseout    鼠标离开
+   onmouseup     鼠标 松开
+   onmousedown  鼠标按下
+   onmousemove   鼠标移动
+   onclick             单击
+   ondbclick           双击
+   onfocus             获得焦点
+   onblur              失去焦点
+ 
+7.事件的绑定
+解决不能够执行两个方法的问题
+   addEventListener     主流浏览器
+   attachEvent           IE浏览器
+   removeEventListener 主流浏览器
+   detachListener  IE浏览器
+   兼容性写法：
+       function  addEvent(obj,ev,fn){
+          if(obj.addEventListener(ev,fn)){
+              obj.addEventLister(ev,fn);
+          } else {
+              obj.attachEvent('on'+ev,fn) ;
+          }
+       }
+ 
+8.事件冒泡
+   事件ev和window.event 兼容性写法
+       var oEvent = ev || window.event
+   事件源对像
+       srcElement(谷歌和IE)
+       target(火狐专用) oEvent.target
+   获取鼠标的坐标
+       oEvent..c
+   
