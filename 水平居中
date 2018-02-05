@@ -1,1 +1,177 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+
+		/*例子一：优点兼容性好；缺点：需要同时设置子元素和父元素；*/
+		.parent1 {
+			text-align: center;
+			background-color: #ddd;
+		}
+		.child1 {
+			display: inline-block;
+			background-color: red;
+		}
+		
+		/*例子二 : 有点：兼容性好；缺点：需要指定宽度*/
+		.child2{
+			width: 200px;
+			margin: 0 auto;
+			background-color: red;
+		}
+
+		.parent3 {
+			position: relative;
+		}
+		
+		/*例子三：或者实用margin-left的负值为盒子宽度的一半也可以实现，不过这样就必须知道盒子的宽度，但兼容性好*/ 
+
+		.child3{
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%);
+			background-color: #ff0;
+		}
+
+		/*flex布局*/
+		.parent4{
+			display: flex;
+			justify-content:center;
+			margin-top: 50px;
+		}
+		.child4{
+			background-color: #f0f;
+		}
+
+		
+		/*垂直居中一： 绝对定位*/
+		.parent11{
+			position: relative;
+			background-color: #ddd;
+			padding: 50px;
+		}
+		.child11{
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background-color: #0ff;
+		}
+
+		/*垂直居中二： flex*/
+		.parent12{
+			display: flex;
+			align-items:center;
+			background-color: #ddd;
+			margin-top: 20px;
+			height: 80px;       /*高度无关紧要*/
+			
+		}
+		.child12{
+			background-color: #0ff;
+		}
+		
+		.parent21 {
+			position: relative;
+			background-color: #ff0;
+			height: 100px;
+
+		}
+		.child21{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,-50%);
+			background-color: #fdf;
+		}
+
+		.parent22{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			background-color: #f30;
+			height: 80px;
+		}
+
+
+		.left{
+			float: left;
+			width: 200px;
+			background-color: #ff9;
+			height: 50px;
+		}
+		.right{
+			margin-left: 100px;
+			background-color: #d45;
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	
+	<!-- 例子一 -->
+	<div class="parent1">
+		<div class="child1">
+			例子一
+		</div>
+	</div>
+
+		<!-- 例子二 -->
+	<div class="parent2">
+		<div class="child2">
+			例子二
+		</div>
+	</div>
+
+			<!-- 例子三 -->
+	<div class="parent3">
+		<div class="child3">
+			例子三
+		</div>
+	</div>
+	
+				<!-- 例子四 -->
+	<div class="parent4">
+		<div class="child4">
+			例子四
+		</div>
+	</div>
+	
+
+	<!-- 垂直居中 -->
+	<div class="parent11">
+		<div class="child11">
+			垂直居中一
+		</div>
+	</div>
+
+	<div class="parent12">
+		<div class="child12">
+			垂直居中一
+		</div>
+	</div>
+
+	<!-- 水平垂直居中 -->
+	<div class="parent21">
+		<div class="child21">
+			水平垂直居中一
+		</div>
+	</div>
+
+	<div class="parent22">
+		<div class="child22">
+			水平垂直居中二
+		</div>
+	</div>
+
+	<!-- 多列布局 -->
+	<div class="left">
+		定宽
+	</div>
+	<div class="right">
+		自适应
+	</div>
+</body>
+</html>
